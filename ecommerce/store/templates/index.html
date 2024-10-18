@@ -1,0 +1,39 @@
+{%include "base.html"%} {%block content%}
+<div class="container-fluid mt-3">
+  <div class="row">
+    <!--categori-->
+    <div class="col-lg-3">
+      <div class="list-group">
+        {%for category in category%}
+        <a
+          href="/?category={{category.id}}"
+          class="list-group-item list-group-item-action"
+          >{{category.name}}</a
+        >
+        {%endfor%}
+      </div>
+    </div>
+
+    <!--produk-->
+    <div id="product" class="col-lg-9">
+      <div class="row mx-auto">
+        {%for product in product%}
+        <div class="card mx-auto mb-3" style="width: 18rem">
+          <img
+            src="{{product.image.url}}"
+            class="card-img-top h-50"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.price}}</p>
+            <p class="card-text">{{product.description}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock content%}
