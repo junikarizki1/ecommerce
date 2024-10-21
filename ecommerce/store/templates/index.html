@@ -4,6 +4,9 @@
     <!--categori-->
     <div class="col-lg-3">
       <div class="list-group">
+        <a href="/" class="list-group-item list-group-item-action"
+          >Semua Produk</a
+        >
         {%for category in category%}
         <a
           href="/?category={{category.id}}"
@@ -25,10 +28,12 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">{{product.name}}</h5>
-            <p class="card-text">{{product.price}}</p>
+            <h4 class="card-title">{{product.name}}</h4>
+            <h6 class="card-text">Rp.{{product.price}}</h6>
+            {% comment %}
             <p class="card-text">{{product.description}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            {% endcomment %} {% comment %}
+            <a href="#" class="btn btn-primary">View</a> {% endcomment %}
           </div>
         </div>
         {% endfor %}
