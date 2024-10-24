@@ -3,16 +3,17 @@
   <div class="row my-3">
     <div class="col-sm-6 offset-sm-3">
         <h3>Registrasi Pelanggan</h3>
-        <form action="" class="shadow p-5">
+        <form action="/signup" method="post" class="shadow p-5">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="" class="form-control-lg">Nama</label>
                 <input type="text" name="name" id="" class="form-control" placeholder="Masukkan Nama"></input>
             </div>
             <div class="form-group">
                 <label for="" class="form-control-lg">No Telepon</label>
-                <input type="text" name="no" id="" class="form-control" placeholder="Masukkan No Telepon"></input>
+                <input type="text" name="phone" id="" class="form-control" placeholder="Masukkan No Telepon"></input>
             </div>
-            <div class="form-group pt-4">
+            <div class="form-group pt-4 d-flex justify-content-center">
                 <input class="btn btn-sm btn-info" type="submit" value="Registrasi"></input>
             </div>
             <div class="text-center text-primary fw-bold">

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models.product import Product
 from .models.category import Category
+from .models.costumer import Costumer
 
 def index(request):
     products=None
@@ -19,5 +20,16 @@ def index(request):
     return render(request, 'index.html', data)
 
 def signup(request):
-    return render(request, 'signup.html')
+    
+    if request.method=='GET':
+        return render(request, 'signup.html')
+    else:
+        postData=request.POST
+        name=postData.get('name')
+        phone=postData.get('phone')
+        
+        costumer=Costumer(name=name,
+                          phone=phone)
+        costumer.register()
+        return HttpResponse("Sukses Signup")
     
