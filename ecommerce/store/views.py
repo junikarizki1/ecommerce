@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
+
 from .models.product import Product
 from .models.category import Category
 from .models.costumer import Costumer
@@ -28,8 +30,20 @@ def signup(request):
         name=postData.get('name')
         phone=postData.get('phone')
         
+        error_message = None
+        
         costumer=Costumer(name=name,
                           phone=phone)
-        costumer.register()
-        return HttpResponse("Sukses Signup")
+        
+        
+        if(not name):
+            error_message="Silahkan masukkan Username terlebih dahulu"
+        elif(not phone):
+            error_message="Silahkan masukkan Nomor HP terlebih dahulu"
+        if not error_message:
+            messages.success(request, 'Selamat Akun Anda Berhasil Dibuat')
+            costumer.register()
+            return redirect('signup')
+        else:
+            return render(request, 'signup.html', {'error':error_message})
     

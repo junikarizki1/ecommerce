@@ -4,7 +4,17 @@
     <div class="col-sm-6 offset-sm-3">
         <h3>Registrasi Pelanggan</h3>
         <form action="/signup" method="post" class="shadow p-5">
+            {%if messages%}
+            {%for message in messages%}
+            <p {%if message.tags%} class="alert alert-{{message.tags}} mb-5"{%endif%}>{{message}}</p>
+            {%endfor%}
+            {%endif%}
+
             {% csrf_token %}
+
+            {%if error%}
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+            {%endif%}
             <div class="form-group">
                 <label for="" class="form-control-lg">Nama</label>
                 <input type="text" name="name" id="" class="form-control" placeholder="Masukkan Nama"></input>

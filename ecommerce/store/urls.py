@@ -4,5 +4,5 @@ from .views import index, signup
 
 urlpatterns = [
     path('',index),
-    path('signup',signup),
+    path('signup',signup, name='signup'),
 ]
