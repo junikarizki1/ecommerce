@@ -2,7 +2,7 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <!--categori-->
-    <div class="col-lg-3">
+    <div class="col-lg-3 mb-3">
       <div class="list-group">
         <a href="/" class="list-group-item list-group-item-action"
           >Semua Produk</a
@@ -28,12 +28,19 @@
             alt="..."
           />
           <div class="card-body">
-            <h4 class="card-title">{{product.name}}</h4>
+            <h4 class="card-title">{{product.name|truncatewords:2}}</h4>
             <h6 class="card-text">Rp.{{product.price}}</h6>
             {% comment %}
             <p class="card-text">{{product.description}}</p>
-            {% endcomment %} {% comment %}
-            <a href="#" class="btn btn-primary">View</a> {% endcomment %}
+            {% endcomment %}
+            <div class="text-center mt-3">
+              <a
+                href="#"
+                class="btn"
+                style="background-color: #c748b0; color: white"
+                >Masukkan Ke Keranjang</a
+              >
+            </div>
           </div>
         </div>
         {% endfor %}

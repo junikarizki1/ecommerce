@@ -26,6 +26,15 @@
       nav {
         background-color: white;
       }
+      .navbar-costum {
+        background-color: #160840;
+      }
+      .btn-search {
+        background-color: #d138b5;
+      }
+      .logo img {
+        width: 50px;
+      }
       .one-edge-shadow {
         box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
       }
@@ -38,7 +47,7 @@
   <body>
     <!-- navbar -->
     <nav
-      class="one-edge-shadow sticky-top navbar navbar-expand-lg navbar navbar-dark bg-primary"
+      class="one-edge-shadow sticky-top navbar navbar-expand-lg navbar navbar-dark navbar-costum"
     >
       <button
         class="navbar-toggler"
@@ -54,7 +63,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+            <a href="/" class="logo" style="display: flex; align-items: center">
+              <img
+                src="static/images/robinlogo.png"
+                alt=""
+                class="d-inline-block align-top"
+              />
+              <span style="color: white">Robin Ball Pool</span>
+              <span class="sr-only"></span>
+            </a>
           </li>
         </ul>
         <form class="d-flex">
@@ -65,7 +82,7 @@
             aria-label="Search"
             name="query"
           />
-          <button class="btn btn-warning mr-4" type="submit">Search</button>
+          <button class="btn btn-search mr-4" type="submit">Search</button>
         </form>
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item active dropdown">
