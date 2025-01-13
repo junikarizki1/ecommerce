@@ -2,8 +2,8 @@
 <div class="container">
   <div class="row my-3 mt-5">
     <div class="col-sm-6 offset-sm-3">
-        <h3>Registrasi Pelanggan</h3>
-        <form action="/signup" method="post" class="shadow p-5">
+        <h3>Login</h3>
+        <form action="/login" method="post" class="shadow p-5">
             {%if messages%}
             {%for message in messages%}
             <p {%if message.tags%} class="alert alert-{{message.tags}} mb-5"{%endif%}>{{message}}</p>
@@ -16,19 +16,15 @@
             <div class="alert alert-danger" role="alert">{{error}}</div>
             {%endif%}
             <div class="form-group">
-                <label for="" class="form-control-lg">Nama</label>
-                <input type="text" name="name" id="" value="{{value.name}}" class="form-control" placeholder="Masukkan Nama"></input>
-            </div>
-            <div class="form-group">
                 <label for="" class="form-control-lg">No Telepon</label>
                 <input type="text" name="phone" id="" value="{{value.phone}}" class="form-control" placeholder="Masukkan No Telepon"></input>
             </div>
             <div class="form-group pt-4 d-flex justify-content-center">
-                <input class="btn btn-sm" style="background-color: #d138b5;" type="submit" value="Registrasi"></input>
+                <input class="btn btn-sm" style="background-color: #d138b5;" type="submit" value="Login"></input>
             </div>
             <div class="text-center text-primary fw-bold">
-                <small class="form-control-sm">Sudah Punya Akun?</small>
-                <a href="/login" class="text-danger">Login</a>
+                <small class="form-control-sm">Belum Punya Akun?</small>
+                <a href="/signup" class="text-danger">Register</a>
             </div>
         </form>
     </div>

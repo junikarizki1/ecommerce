@@ -32,18 +32,50 @@ def signup(request):
         
         error_message = None
         
+        value = {
+            'name':name,
+            'phone':phone
+        }
+        
         costumer=Costumer(name=name,
                           phone=phone)
         
-        
-        if(not name):
-            error_message="Silahkan masukkan Username terlebih dahulu"
-        elif(not phone):
+        if not name:
+            error_message="Silahkan masukkan Nama terlebih dahulu"
+        elif not phone:
             error_message="Silahkan masukkan Nomor HP terlebih dahulu"
+        elif len(phone)<10:
+            error_message="Masukkan nomor telepon yang benar"
+        elif costumer.isExists():
+            error_message="Nomor telepon telah terdaftar"
         if not error_message:
-            messages.success(request, 'Selamat Akun Anda Berhasil Dibuat')
+            messages.success(request, 'Selamat Akun Anda Berhasil Dibuat, silahkan Login')
             costumer.register()
             return redirect('signup')
         else:
-            return render(request, 'signup.html', {'error':error_message})
+            data = {
+                'error':error_message,
+                'value':value
+            }
+            return render(request, 'signup.html', data)
+
+def login(request):
+    if request.method == 'GET':
+        return render(request,'login.html')
+    else:
+        phone = request.POST.get('phone')
+        error_message = None
+        value ={
+            'phone':phone
+        }
+        costumer = Costumer.objects.filter(phone=request.POST["phone"])
+        if costumer:
+            return redirect('home') 
+        else:
+            error_message = "Nomor telepon tidak terdaftar"
+            data = {
+                'error':error_message,
+                'value':value
+            }
+        return render(request, 'login.html',data)
     
