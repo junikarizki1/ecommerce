@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
+import random
 
 from .models.product import Product
 from .models.category import Category
@@ -37,8 +39,7 @@ def signup(request):
             'phone':phone
         }
         
-        costumer=Costumer(name=name,
-                          phone=phone)
+        costumer=Costumer(name=name,phone=phone)
         
         if not name:
             error_message="Silahkan masukkan Nama terlebih dahulu"
@@ -78,4 +79,25 @@ def login(request):
                 'value':value
             }
         return render(request, 'login.html',data)
+
+def product_list(request):
+    products = Product.objects.all()  # Mengambil semua produk dari database
+    return render(request, 'product_list.html', {'products': products})
+    
+def product_detail(request, product_code):
+    product = get_object_or_404(Product, product_code=product_code)
+    
+    # Mengambil 4 produk acak untuk rekomendasi
+    recommended_products = random.sample(list(Product.objects.all()), 4)
+    #end
+    
+    category=Category.get_all_categories();
+    
+    categoryID = request.GET.get('category')
+    if categoryID:
+        products= Product.get_all_product_by_category_id(categoryID)
+    else:
+        products= Product.get_all_products()
+    
+    return render(request, 'product_detail.html', {'product': product,'recommended_products':recommended_products, 'category':category, 'products':products})   
     

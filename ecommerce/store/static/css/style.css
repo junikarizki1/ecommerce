@@ -1,0 +1,207 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Index Start */
+.top-nav {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+.bottom-nav {
+  padding: 0.5rem 0;
+}
+.nav-link {
+  color: #666;
+  padding: 0.5rem 1rem !important;
+}
+.search-form {
+  width: 100%;
+  max-width: 600px;
+}
+.cart-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+}
+.navbar-toggler {
+  border: none;
+  padding: 0;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  width: 24px;
+  height: 24px;
+}
+.mobile-actions {
+  gap: 1rem;
+}
+.login-btn {
+  white-space: nowrap;
+}
+.logo img {
+  width: 50px;
+}
+
+.hero {
+  background-color: #fdf2dc;
+  padding: 40px 20px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.hero p {
+  font-size: 1.2rem;
+}
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+.features .feature-item {
+  text-align: center;
+}
+.features .feature-item i {
+  font-size: 2rem;
+  color: #d80000;
+}
+.product-detail-image {
+  width: 400px; /* Tentukan lebar tetap */
+  height: 400px; /* Tentukan tinggi tetap */
+  object-fit: cover; /* Menjaga proporsi gambar tanpa distorsi */
+}
+.card-img-top {
+  width: 100%; /* Sesuaikan dengan lebar card */
+  height: 200px; /* Atur tinggi tetap */
+  object-fit: cover; /* Memastikan gambar terpotong tanpa mengubah aspek rasio */
+  overflow: hidden; /* Memotong bagian gambar yang melebihi area */
+}
+.category-card {
+  border: none;
+  text-align: center;
+}
+.category-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fdf4e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+.category-image img {
+  max-width: 70%;
+}
+.subscribe-section {
+  position: relative;
+  background-image: url("/static/images/subscribe.png"); /* Ganti dengan URL gambar Anda */
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  color: #fff;
+}
+.subscribe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+}
+.subscribe-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 100px 20px;
+}
+.subscribe-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.subscribe-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.subscribe-form input[type="email"] {
+  max-width: 400px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 10px;
+}
+.subscribe-form button {
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.subscribe-form button:hover {
+  background-color: #cc0000;
+}
+.subscribe-checkbox {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #fff;
+}
+.footer {
+  color: white;
+  padding: 50px 20px;
+  font-size: 14px;
+}
+.footer h5 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer .social-icons a {
+  margin-right: 15px;
+  font-size: 20px;
+}
+.footer-bottom {
+  border-top: 1px solid white;
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+}
+.footer-bottom img {
+  margin: 10px;
+  height: 30px;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .search-form {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .bottom-nav {
+    display: none;
+  }
+  .carousel-inner {
+    margin-top: 80px;
+  }
+  .login {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

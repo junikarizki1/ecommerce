@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<!-- Produk Section -->
+<div class="container my-5">
+  <h2 class="text-left mb-4">Semua Produk</h2>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for product in product %}
+    <div class="col">
+      <div class="card text-center">
+        <div class="position-relative">
+          <!-- Link ke detail produk -->
+          <a href="{% url 'product_detail' product.product_code %}">
+            <img
+              src="{{ product.image.url }}"
+              class="card-img-top"
+              alt="{{ product.name }}"
+            />
+          </a>
+        </div>
+        <div class="card-body">
+          <!-- Link ke detail produk -->
+          <a
+            href="{% url 'product_detail' product.product_code %}"
+            class="text-decoration-none text-dark"
+          >
+            <h5 class="card-title">{{ product.name|truncatewords:2 }}</h5>
+          </a>
+          <p class="text-muted">Rp.{{ product.price }}</p>
+          <div class="input-group mb-2">
+            <button class="btn btn-outline-secondary" type="button">-</button>
+            <input type="text" class="form-control text-center" value="1" />
+            <button class="btn btn-outline-secondary" type="button">+</button>
+          </div>
+          <button class="btn btn-dark w-100">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- end -->
+{% endblock content%}
