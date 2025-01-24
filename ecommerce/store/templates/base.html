@@ -57,7 +57,7 @@
               <input
                 type="search"
                 class="form-control"
-                placeholder="Search for products..."
+                placeholder="Search for menu..."
               />
               <button class="btn btn-danger" type="submit">
                 <i class="bi bi-search"></i>
@@ -111,10 +111,10 @@
       <div class="container">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link active" href="/">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'product_list' %}">Products</a>
+            <a class="nav-link" href="{% url 'product_list' %}">Menu</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -135,7 +135,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Kontak</a>
           </li>
         </ul>
       </div>
@@ -165,7 +165,7 @@
             <input
               type="search"
               class="form-control"
-              placeholder="Search for products..."
+              placeholder="Search for menu..."
             />
             <button class="btn btn-success" type="submit">
               <i class="bi bi-search"></i>
@@ -176,10 +176,10 @@
         <!-- Navigation Links - Mobile -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="/">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="{% url 'product_list' %}">Menu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Schools</a>
@@ -191,7 +191,7 @@
             <a class="nav-link" href="#">Support</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Kontak</a>
           </li>
         </ul>
 
@@ -217,15 +217,17 @@
     <div class="subscribe-section">
       <div class="subscribe-overlay"></div>
       <div class="subscribe-content">
-        <h2>Subscribe & Save</h2>
-        <p><strong>20% off</strong> Your Next Order</p>
+        <h2>Berlangganan dan Dapatkan</h2>
+        <p><strong>Diskon 10%</strong> Untuk Orderan Selanjutnya</p>
         <form class="subscribe-form d-flex justify-content-center">
           <input type="email" placeholder="Email *" required />
-          <button type="submit" class="btn btn-danger">Subscribe</button>
+          <button type="submit" class="btn btn-danger">Berlangganan</button>
         </form>
         <div class="subscribe-checkbox">
           <input type="checkbox" id="newsletter" />
-          <label for="newsletter">Yes, subscribe me to your newsletter.</label>
+          <label for="newsletter"
+            >Saya berlangganan untuk mendapatkan informasi.</label
+          >
         </div>
       </div>
     </div>
@@ -235,7 +237,7 @@
         <div class="row">
           <!-- Logo and Help Section -->
           <div class="col-md-3">
-            <h5>Clovers.</h5>
+            <h5>D'Umi Cafe</h5>
             <p>Need Help?</p>
             <p>
               Visit our <a href="#">Customer Support</a> for assistance or call
@@ -309,7 +311,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center gap-3">
               <img
-                src="{% static 'images/gopay.png' %}"
+                src="{% static 'images/bca.png' %}"
                 alt="MasterCard"
                 style="width: 100%; height: 24px"
               />
@@ -317,6 +319,20 @@
             <div class="d-flex justify-content-center align-items-center gap-3">
               <img
                 src="{% static 'images/shopeepay.png' %}"
+                alt="MasterCard"
+                style="width: 100%; height: 24px"
+              />
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-3">
+              <img
+                src="{% static 'images/ovo.png' %}"
+                alt="MasterCard"
+                style="width: 100%; height: 24px"
+              />
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-3">
+              <img
+                src="{% static 'images/mastercard.png' %}"
                 alt="MasterCard"
                 style="width: 100%; height: 24px"
               />

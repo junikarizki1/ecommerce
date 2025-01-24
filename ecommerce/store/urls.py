@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/',views.login, name='login'),
     path('product/<str:product_code>/', views.product_detail, name='product_detail'),
     path('product_list/',views.product_list, name='product_list'),
+    # path('category/<int:category_id>/', views.category_products, name='category_products'),
 ]

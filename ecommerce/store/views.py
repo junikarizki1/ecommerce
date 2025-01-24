@@ -10,7 +10,8 @@ from .models.costumer import Costumer
 
 def index(request):
     products=None
-    category=Category.get_all_categories();
+    products = Product.get_all_products()
+    category=Category.get_all_categories()
     
     categoryID = request.GET.get('category')
     if categoryID:
@@ -22,6 +23,27 @@ def index(request):
     data['product']=products
     data['category']=category
     return render(request, 'index.html', data)
+    # data = {
+    #     'product': products,
+    #     'category': category,
+    # }
+    # return render(request, 'index.html', data)
+
+
+# def category_products(request, category_id):
+#     try:
+#         # Dapatkan kategori dan filter produk berdasarkan kategori
+#         category = Category.objects.get(id=category_id)
+#         products = Product.objects.filter(category=category)
+
+#         data = {
+#             'product': products,
+#             'category': category,
+#         }
+#         return render(request, 'category.html', data)
+#     except Category.DoesNotExist:
+#         # Tangani jika kategori tidak ditemukan
+#         return render(request, '404.html', {"message": "Kategori tidak ditemukan"})
 
 def signup(request):
     
@@ -81,8 +103,15 @@ def login(request):
         return render(request, 'login.html',data)
 
 def product_list(request):
-    products = Product.objects.all()  # Mengambil semua produk dari database
-    return render(request, 'product_list.html', {'products': products})
+    product = Product.objects.all()  # Mengambil semua produk dari database
+    
+    category=Category.get_all_categories();
+    categoryID = request.GET.get('category')
+    if categoryID:
+        products= Product.get_all_product_by_category_id(categoryID)
+    else:
+        products= Product.get_all_products()
+    return render(request, 'product_list.html', {'product': product,'category':category,'products':products})
     
 def product_detail(request, product_code):
     product = get_object_or_404(Product, product_code=product_code)
@@ -92,7 +121,6 @@ def product_detail(request, product_code):
     #end
     
     category=Category.get_all_categories();
-    
     categoryID = request.GET.get('category')
     if categoryID:
         products= Product.get_all_product_by_category_id(categoryID)
