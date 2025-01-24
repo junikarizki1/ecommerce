@@ -5,3 +5,10 @@ class Costumer(models.Model):
     
     def register(self):
         self.save()
+        
+# biar nomor telepon tidak boleh sama
+    def isExists(self):
+        if Costumer.objects.filter(phone=self.phone):
+            return True
+        else:
+            return False

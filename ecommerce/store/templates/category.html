@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container my-5">
+  <h2 class="text-left mb-4">Kategori: {{ category.name }}</h2>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for product in product %}
+    <div class="col">
+      <div class="card text-center">
+        <a href="{% url 'product_detail' product.id %}">
+          <img
+            src="{{ product.image.url }}"
+            class="card-img-top"
+            alt="{{ product.name }}"
+          />
+        </a>
+        <div class="card-body">
+          <a
+            href="{% url 'product_detail' product.id %}"
+            class="text-decoration-none text-dark"
+          >
+            <h5 class="card-title">{{ product.name }}</h5>
+          </a>
+          <p class="text-muted">Rp.{{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

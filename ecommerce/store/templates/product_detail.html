@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% block content %}
+<div class="container my-5">
+  <div class="row">
+    <!-- Gambar Produk -->
+    <div class="col-md-6">
+      <div class="border p-3">
+        {% if product.image %}
+        <img
+          src="{{ product.image.url }}"
+          alt="Product Image"
+          class="img-fluid product-detail-image"
+        />
+      </div>
+      {% else %}
+      <img
+        src="/static/default-image.jpg"
+        class="img-fluid"
+        alt="No Image Available"
+        style="max-width: 100%; height: auto"
+      />
+      {% endif %}
+    </div>
+
+    <!-- Informasi Produk -->
+    <div class="col-md-6">
+      <h2>{{ product.name }}</h2>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">4.5 ★</span>
+        <span>(200 Ulasan)</span>
+      </div>
+      <h4 class="text-danger mt-3">Rp {{ product.price}}</h4>
+
+      <p class="mt-4">
+        <strong>Deskripsi:</strong><br />
+        {{ product.description }}
+      </p>
+
+      <!-- Pilihan Kuantitas -->
+      <div class="d-flex align-items-center gap-3 mt-4">
+        <label for="quantity" class="form-label">Kuantitas:</label>
+        <div class="input-group" style="width: 150px">
+          <button class="btn btn-outline-secondary" type="button">-</button>
+          <input
+            type="number"
+            id="quantity"
+            class="form-control text-center"
+            value="1"
+            min="1"
+          />
+          <button class="btn btn-outline-secondary" type="button">+</button>
+        </div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="mt-4">
+        <button class="btn btn-dark btn-lg me-3">
+          <i class="bi bi-cart"></i> Tambah ke Pesanan
+        </button>
+        <button class="btn btn-outline-danger btn-lg">
+          <i class="bi bi-heart"></i> Tambahkan ke Favorit
+        </button>
+      </div>
+    </div>
+
+    <!-- Pembatas Garis -->
+    <div class="my-5">
+      <hr style="border-top: 2px solid #000" />
+    </div>
+
+    <!-- Produk Rekomendasi -->
+    <div class="row mt-5">
+      <h3>Produk Rekomendasi</h3>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for recommended_product in recommended_products %}
+        <!-- Produk 1 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="{{ recommended_product.image.url }}"
+              class="card-img-top"
+              alt="Rekomendasi 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ recommended_product.name }}</h5>
+              <p class="text-danger">Rp {{ recommended_product.price }}</p>
+              <a
+                href="{% url 'product_detail' recommended_product.id %}"
+                class="btn btn-dark"
+                >Lihat Detail</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end -->
+{% endblock content%}
